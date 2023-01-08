@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { getObject } from "../../../api/s3";
+import { getObject, listObjects } from "../../../api/s3";
 
 
 export default async function Article({params}: Params): Promise<ReactElement> {
@@ -14,6 +14,14 @@ export default async function Article({params}: Params): Promise<ReactElement> {
         <h3>{key}</h3>
         <p>{data}</p>
     </div>
+}
+
+export async function generateStaticParams() {
+    const output = await listObjects();
+
+    return output.Contents?.map((obj) => ({
+        key: obj.Key,
+    }))
 }
 
 interface Params {
