@@ -11,10 +11,9 @@ export default async function Article({params}: Params): Promise<ReactElement> {
     const body: any = output.Body;
     const data: string = await body.transformToString();
 
-
     return <div>
         <h3>{key}</h3>
-        <p>{data}</p>
+        {/* <p>{data}</p> */}
     </div>
 }
 
@@ -24,7 +23,6 @@ export async function generateStaticParams() {
     return output.Contents?.map((obj) => ({
         key: obj.Key,
     }))
-    // return [{key: 'GamerGirl.txt'}]
 }
 
 interface Params {
