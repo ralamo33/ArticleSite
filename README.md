@@ -18,6 +18,8 @@ Data Fetching best practices: https://beta.nextjs.org/docs/data-fetching/fetchin
 
 
 Read Next: https://beta.nextjs.org/docs/data-fetching/generating-static-params
+SEO Guide: https://nextjs.org/learn/seo/crawling-and-indexing/xml-sitemaps
+https://developers.google.com/search/docs/fundamentals/seo-starter-guide
 
 
 ## Deploy on Vercel
