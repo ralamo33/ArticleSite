@@ -13,16 +13,17 @@ export default async function Article({params}: Params): Promise<ReactElement> {
 
     return <div>
         <h3>{key}</h3>
-        {/* <p>{data}</p> */}
+        <p>{data}</p>
     </div>
 }
 
 export async function generateStaticParams() {
     const output = await listObjects();
 
-    return output.Contents?.map((obj) => ({
-        key: obj.Key,
-    }))
+    // return output.Contents?.map((obj) => ({
+    //     key: obj.Key,
+    // }))
+    return [{key: "GamerBoys.txt"}]
 }
 
 interface Params {
