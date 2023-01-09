@@ -37,7 +37,7 @@ function ArticleCard({link}: {link: string}): ReactElement {
     return (<Link href={`/article/${link}`} className="text-black md:w-1/3 w-full mb-10 px-20">
                 <div className="bg-white rounded-lg">
                     <p className="text-center text-lg">{link.split("Write_me_an_article_about_")[1].split(".")[0]}</p>
-                    <p className="text-center italic">Jerry Alamo</p>
+                    <p className="text-center italic">Joseph Nagy</p>
                     <p>This article is super cool and will change your life forever and ever and ever</p>
                 </div>
             </Link>
