@@ -20,23 +20,26 @@ export default async function HomePage(): Promise<ReactElement> {
                 <input className="w-full h-32  border-4 rounded-lg text-6xl opacity-60" placeholder="Learn Something" />
                 <p className="text-6xl text-center mt-5">Brain Fuel</p>
             </div>
-            <div className="flex justify-center mt-10 ml-10">
-                {
-                    output.Contents?.map((obj) => {
-                        const key = obj.Key!;
-                        return <ArticleCard link={key} key={`Article Card ${key}`} />
-                    })
-                }
+            <div className="px-2">
+                <div className="flex flex-wrap justify-center -mx-2">
+                    {
+                        output.Contents?.map((obj) => {
+                            const key = obj.Key!;
+                            return <ArticleCard link={key} key={`Article Card ${key}`} />
+                        })
+                    }
+                </div>
             </div>
         </div>
 }
 
 function ArticleCard({link}: {link: string}): ReactElement {
-    return (<div className="bg-white mr-10">
-            <Link href={`/article/${link}`} className="text-black w-15">
-                <p className="text-center text-lg">{link}</p>
-                <p className="text-center">Jerry Alamo</p>
-                <p>This article is super cool and will change your life forever and ever and ever</p>
+    return (<Link href={`/article/${link}`} className="text-black md:w-1/3 w-full mb-10 px-20">
+                <div className="bg-white rounded-lg">
+                    <p className="text-center text-lg">{link.split("Write_me_an_article_about_")[1].split(".")[0]}</p>
+                    <p className="text-center italic">Jerry Alamo</p>
+                    <p>This article is super cool and will change your life forever and ever and ever</p>
+                </div>
             </Link>
-        </div>);
+            );
 }
