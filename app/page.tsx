@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { ReactElement } from "react";
-import { getImageStatic, listArticles } from "../api/s3";
+import { listArticles } from "../api/s3";
 import Image from "next/image";
 import Hero from "../images/HeroDesktop.jpeg";
 import Mobile from "../images/HeroMobile.png";
