@@ -8,10 +8,15 @@ const s3Client = new S3Client({
     }
 });
 
-export function listObjects(): Promise<ListObjectsV2Output> {
-    return s3Client.send(new ListObjectsV2Command({Bucket: process.env.BUCKET!}));
+
+export function listArticles(): Promise<ListObjectsV2Output> {
+    return s3Client.send(new ListObjectsV2Command({Bucket: process.env.BUCKET_ARTICLES!}));
 }
 
-export function getObject(key: string): Promise<GetObjectOutput> {
-    return s3Client.send(new GetObjectCommand({Bucket: process.env.BUCKET!, Key: key}))
+export function getArticle(key: string): Promise<GetObjectOutput> {
+    return s3Client.send(new GetObjectCommand({Bucket: process.env.BUCKET_ARTICLES!, Key: key}))
+}
+
+export function getImageStatic(key: string): Promise<GetObjectOutput> {
+    return s3Client.send(new GetObjectCommand({Bucket: process.env.BUCKET_STATIC!, Key: key}))
 }
