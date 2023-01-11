@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { getArticleData } from "../../../api/s3";
 
 export default async function Head({params}: {params: {key: string}}) {
@@ -26,7 +27,8 @@ export default async function Head({params}: {params: {key: string}}) {
         <>
             <title>{articleData.title}</title>
             <meta name="description">{articleData.description}</meta>
-            <script dangerouslySetInnerHTML={{ __html: JSON.stringify(script) }} />
+            <Script id="article-meta-data" async type="application/ld+json" 
+            dangerouslySetInnerHTML={{__html: JSON.stringify(script)}}/>
         </>
     );
 }
