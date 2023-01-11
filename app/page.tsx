@@ -14,8 +14,8 @@ export default async function HomePage(): Promise<ReactElement> {
                 <Image alt="hero image" src={Hero} placeholder="blur" className="hidden lg:inline" />
                 <Image alt="hero image" src={Mobile} placeholder="blur" className="lg:hidden -z-10" />
             </div>
-            <div className="h-96" />
-            {/* <div className="flex items-center content-center self-center"> */}
+            <h1 className="text-center text-8xl text-white">JR Knowledge</h1>
+            <div className="h-80" />
             <div className="m-auto w-3/5  mt-32 text-white" >
                 <input className="w-full h-32  border-4 rounded-lg text-6xl opacity-60" placeholder="Learn Something" />
                 <p className="text-6xl text-center mt-5">Brain Fuel</p>
