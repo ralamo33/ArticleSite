@@ -1,18 +1,16 @@
 import React, { ReactElement } from "react";
-import { getArticle, listArticles } from "../../../api/s3";
+import { getArticleData } from "../../../api/s3";
 
 
 export default async function Article({params}: Params): Promise<ReactElement> {
 
     const key = params.key;
 
-    const output = await getArticle(key);
-    const body: any = output.Body;
-    const data: string = await body.transformToString();
+    const data = await getArticleData(key);
 
     return <div>
-        <h3 className="text-blue-600">{key}</h3>
-        <p className="text-blue-600">{data}</p>
+        <h1 className="text-blue-600" itemScope itemType="https://schema.org/NewsArticle">{key}</h1>
+        <p className="text-blue-600">{data.body}</p>
     </div>
 }
 
