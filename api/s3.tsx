@@ -16,20 +16,25 @@ export async function getArticleData(key: string): Promise<ArticleData> {
     const raw = await s3Client.send(new GetObjectCommand({Bucket: process.env.BUCKET!, Key: key}))
     const body: any = raw.Body;
     const formatted =  await body.transformToString() as string;
+    const delimiter = "-----"
+    const split = formatted.split(delimiter)
+    const title = split[0].replace("_", " ").split(".")[0];
     return {
-        title: "Aritcle Title",
-        description: "This is one sentence describing the article",
-        body: formatted,
+        title: title,
+        description: split[2],
+        body: split[3],
         author: "Joseph Nagy",
-        createdAt: "2023-01-09T08:00:00+08:00",
+        createdAt: raw.LastModified || new Date(),
+        key: key
     }
 }
 
-interface ArticleData {
+export interface ArticleData {
     title: string;
     description: string;
     body: string;
     author: string;
-    createdAt: string;
+    createdAt: Date;
+    key: string;
 }
 

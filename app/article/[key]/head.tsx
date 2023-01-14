@@ -23,12 +23,21 @@ export default async function Head({params}: {params: {key: string}}) {
         }]
     }
 
+    const googleAnalyticsTag = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KVEKCRFHM9');
+    `;
+
     return (
         <>
             <title>{articleData.title}</title>
             <meta name="description">{articleData.description}</meta>
             <Script id="article-meta-data" async type="application/ld+json" 
             dangerouslySetInnerHTML={{__html: JSON.stringify(script)}}/>
+            <Script id="google-analytics-home" async  src="https://www.googletagmanager.com/gtag/js?id=G-KVEKCRFHM9" />
+            <Script dangerouslySetInnerHTML={{__html: googleAnalyticsTag}} />
         </>
     );
 }
